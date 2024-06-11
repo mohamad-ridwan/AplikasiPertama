@@ -1,117 +1,101 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React, { Component } from "react"
+import { Image, StyleSheet, Text, TextInput, View } from "react-native"
+import child from './child-817373_1280.jpg'
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
+const App = () => {
+  return <StylingReactNativeComponent />
 }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+const StylingReactNativeComponent = () => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <View>
+      <Text style={styles.text}>Styling Component</Text>
+      {/* FIX SIZE */}
+      <View
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: '#aaa',
+          borderWidth: 2,
+          borderColor: 'red',
+          marginTop: 20,
+          marginLeft: 20
+        }}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
+      <View>
+        <Image
+          source={child}
           style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            <Text>Cool...</Text>
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+            width: 188,
+            height: 107
+          }}
+        />
+      </View>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
+  text: {
     fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+    fontWeight: 'bold',
+    color: 'green',
+    marginLeft: 20,
+    marginTop: 40
+  }
+})
 
-export default App;
+const SampleComponent = () => {
+  return (
+    <View>
+      <View style={{ width: 80, height: 80, backgroundColor: '#2980b9' }} />
+      <Text>Hello world</Text>
+      <Ridwan />
+      <Text>Find the Good Life.</Text>
+      <Photo />
+      <TextInput style={{ borderWidth: 1 }} />
+      <BoxGreen />
+      <Profile />
+    </View>
+  )
+}
+
+const Ridwan = () => {
+  return <Text>Ridwan</Text>
+}
+
+const Photo = () => {
+  return <Image
+    source={{ uri: 'https://wahyudi.ezbix.com/store/_next/image?url=http%3A%2F%2Fwahyudi.ezbix.com%2Fassets%2Fimages%2F1715361571-L6QZAVed2VjV3n6BauYR_tn&w=1920&q=75' }}
+    style={{
+      width: 100,
+      height: 100
+    }}
+  />
+}
+
+class BoxGreen extends Component {
+  render() {
+    return <Text>Ini component dari class</Text>
+  }
+}
+
+class Profile extends Component {
+  render() {
+    return (
+      <View>
+        <Image
+          source={{ uri: 'https://wahyudi.ezbix.com/store/_next/image?url=http%3A%2F%2Fwahyudi.ezbix.com%2Fassets%2Fimages%2F1715361571-L6QZAVed2VjV3n6BauYR_tn&w=1920&q=75' }}
+          style={{
+            width: 100,
+            height: 100,
+            borderRadius: 50
+          }}
+        />
+        <Text style={{ color: 'blue', fontSize: 24 }}>Ini Hp</Text>
+      </View>
+    )
+  }
+}
+
+export default App
